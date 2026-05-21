@@ -11,6 +11,7 @@ import { useUserStore } from '@/store/userStore';
 import { createClient } from '@/lib/supabase/client';
 import { formatPrice, formatDateTime, flightDuration, NATIONALITIES, cn } from '@/lib/utils';
 import type { PassengerFormData } from '@/types';
+import { Suspense } from 'react';
 
 const STEPS = ['Seat', 'Passengers', 'Confirm'];
 
@@ -318,7 +319,13 @@ export default function BookingPage() {
     <ToastProvider>
       <div className="min-h-screen bg-sky-950">
         <Navbar />
-        <BookingInner />
+        <Suspense fallback={
+          <div className="flex items-center justify-center h-64">
+            <div className="w-8 h-8 border-2 border-sky-400 border-t-transparent rounded-full animate-spin" />
+          </div>
+        }>
+          <BookingInner />
+        </Suspense>
       </div>
     </ToastProvider>
   );

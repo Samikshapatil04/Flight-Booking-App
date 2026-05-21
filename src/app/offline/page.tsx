@@ -1,3 +1,7 @@
+
+
+'use client';
+
 export default function OfflinePage() {
   return (
     <div className="min-h-screen bg-sky-950 flex items-center justify-center p-4">
@@ -8,16 +12,10 @@ export default function OfflinePage() {
           No internet connection detected. Your cached bookings are still available in the My Bookings section.
         </p>
         <div className="space-y-3">
-          <a
-            href="/my-bookings"
-            className="block w-full btn-primary text-center"
-          >
+          <a href="/my-bookings" className="block w-full btn-primary text-center">
             View My Bookings
           </a>
-          <button
-            onClick={() => window.location.reload()}
-            className="w-full btn-secondary"
-          >
+          <button onClick={() => window.location.reload()} className="w-full btn-secondary">
             Try Again
           </button>
         </div>
